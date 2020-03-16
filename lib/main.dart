@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:road_to_flutter/UIs/authUI/signinscreen.dart';
+import 'package:road_to_flutter/UIs/payment.dart';
 // import 'package:road_to_flutter/UIs/homescreen.dart';
 // import 'package:road_to_flutter/UIs/authUI/signinscreen.dart';
 // import 'package:road_to_flutter/UIs/authUI/signupscreen.dart';
@@ -30,6 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SignIn();
+    return Payment();
   }
 }
