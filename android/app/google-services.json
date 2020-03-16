@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "471430094932",
+    "firebase_url": "https://kwik-73fe4.firebaseio.com",
+    "project_id": "kwik-73fe4",
+    "storage_bucket": "kwik-73fe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471430094932:android:faa3fb25bf9214b3184dc1",
+        "android_client_info": {
+          "package_name": "com.example.road_to_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471430094932-98q26v1a57cu68upsobijq24g1va1uml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.road_to_flutter",
+            "certificate_hash": "c5ec67e35a73be4719d0d246ecc8e032d4d68a7a"
+          }
+        },
+        {
+          "client_id": "471430094932-q27qv366miapmejknf5dkggvr1goduh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj9cAZunPTcmmDcahXU45qVKdy_KARns4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471430094932-q27qv366miapmejknf5dkggvr1goduh6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
