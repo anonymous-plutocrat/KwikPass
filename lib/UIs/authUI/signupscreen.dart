@@ -34,7 +34,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
         elevation: 0,
@@ -48,136 +48,144 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
             SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'FirstName',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'FirstName',
+                icon: Icon(Icons.person),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => firstName = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    firstName = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'Email',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'E-mail',
+                icon: Icon(Icons.email),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => email = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    email = input;
                 },
               ),
               SizedBox(height: 20,),
-                TextFormField(
-                decoration: inputDecor.copyWith(hintText:'LastName',hintStyle: TextStyle(fontSize: 12)),
+                CustomTextField(
+                hint: 'Lastname',
+                icon: Icon(Icons.person),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => lastName = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    lastName = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'UserName',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'Username',
+                icon: Icon(Icons.person),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => userName = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    userName = input;
                 },
               ),
                SizedBox(height: 20,),
-              TextFormField(
-                obscureText: true,
-                decoration: inputDecor.copyWith(hintText:'Password',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                obsecure: true,
+                hint: 'Password',
+                icon: Icon(Icons.lock),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => password = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    lastName = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                keyboardType: TextInputType.datetime,
-                decoration: inputDecor.copyWith(hintText:'Date of Birth',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'Date of Birth',
+                icon: Icon(Icons.date_range),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => dateOfBirth = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    dateOfBirth = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'Country',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'Country',
+                icon: Icon(Icons.place),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => country = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    lastName = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'State',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'State',
+                icon: Icon(Icons.place),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => state = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    state = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'City',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'City',
+                icon: Icon(Icons.place),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => city = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    city = input;
                 },
               ),
               SizedBox(height: 20,),
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                decoration: inputDecor.copyWith(hintText:'Phone Number',hintStyle: TextStyle(fontSize: 12)),
+              CustomTextField(
+                hint: 'Phone Number',
+                icon: Icon(Icons.contact_phone),
                 validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                 onChanged: (value){
-                  setState(() => phoneNo = value);
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    phoneNo = input;
                 },
               ),
               SizedBox(height: 20,),

@@ -63,8 +63,8 @@ class _PaymentState extends State<Payment> {
     );
   }
   _pay(BuildContext context){
-  final snackBar_onFailure = SnackBar(content: Text('Transaction Failed :('));
-  final snackBar_onClosed = SnackBar(content: Text('Transaction Closed !'));
+  final snackBar_onFailure = SnackBar(content: Text('Transaction Failed :('), backgroundColor: Colors.red,);
+  final snackBar_onClosed = SnackBar(content: Text('Transaction Closed !'), backgroundColor: Colors.amber,);
   final _rave = RaveCardPayment(
     isDemo: true,
     encKey:"FLWSECK_TEST1e7c4b1a45a8",

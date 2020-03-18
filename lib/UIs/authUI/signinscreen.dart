@@ -1,8 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_spinkit/flutter_spinkit.dart';
-// import 'package:road_to_flutter/UIs/authUI/signupscreen.dart';
-// import 'package:road_to_flutter/UIs/homescreen.dart';
 import 'package:road_to_flutter/auth/auths.dart';
 import 'package:road_to_flutter/shared/inputDecor.dart';
 
@@ -24,6 +21,7 @@ class _SignInState extends State<SignIn> {
     String error = '';
 
     return Scaffold(
+      // backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
@@ -37,38 +35,34 @@ class _SignInState extends State<SignIn> {
             Column(
             children: <Widget>[
               SizedBox(height: 20,),
-                Center(
-                  child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: inputDecor.copyWith(hintText:'Email',hintStyle: TextStyle(fontSize: 12)),
-                    validator: (value){
-                      if(value.isEmpty){
-                        return 'Field cannot be empty';
-                      }
-                      return null;
-                    },
-                    onChanged: (value){
-                      setState(() => email = value);
-                    },
-                  ),
-                ),
+              CustomTextField(
+                hint: 'E-mail',
+                icon: Icon(Icons.email),
+                validator: (value){
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    email = input;
+                },
+              ),
                SizedBox(height: 20,),
-                Center(
-                  child: TextFormField(
-                    keyboardType: TextInputType.multiline,
-                    obscureText: true,
-                    decoration: inputDecor.copyWith(hintText:'Password',hintStyle: TextStyle(fontSize: 12)),
-                    validator: (value){
-                      if(value.isEmpty){
-                        return 'Field cannot be empty';
-                      }
-                      return null;
-                    },
-                    onChanged: (value){
-                      setState(() => password = value);
-                    },
-                  ),
-                ),
+                CustomTextField(
+                obsecure: true,
+                hint: 'Password',
+                icon: Icon(Icons.lock),
+                validator: (value){
+                    if(value.isEmpty){
+                      return 'Field cannot be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) {
+                    password = input;
+                },
+              ),
               SizedBox(height: 30,),
               FlatButton(
                 child: Text('SignIn'), 
