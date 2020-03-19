@@ -1,226 +1,62 @@
-import 'package:flutter/gestures.dart';
+// // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:road_to_flutter/UIs/authUI/signinscreen.dart';
-// import 'package:road_to_flutter/UIs/homescreen.dart';
-import 'package:road_to_flutter/auth/auths.dart';
+import 'package:provider_architecture/provider_architecture.dart';
+import 'package:road_to_flutter/UIs/sharedUI/buttonUi.dart';
+// import 'package:road_to_flutter/auth/auths.dart';
+// import 'package:road_to_flutter/shared/buttonDecor.dart';
 import 'package:road_to_flutter/shared/inputDecor.dart';
+import 'package:road_to_flutter/shared/uihelpers.dart';
+import 'package:road_to_flutter/view_models/sign_in_view_model.dart';
+import 'package:road_to_flutter/view_models/sign_up_view_model.dart';
 
 
 
-
-
-class SignUp extends StatefulWidget {
-  @override
-  _SignUpState createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
-
-  Auths _auths = Auths();
-  final _formKey = GlobalKey<FormState>();
-  String firstName = '';
-  String lastName = '';
-  String userName = '';
-  String password = '';
-  String dateOfBirth = '';
-  String country= '';
-  String state = '';
-  String city = '';
-  String phoneNo = '';
-  String email = '';
-  String error = '';
-
-  @override
+class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        elevation: 0,
-        centerTitle: true,
-        title: Text('SignUp'),
-      ),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-            children: <Widget> [Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-            SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'FirstName',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => firstName = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'Email',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => email = value);
-                },
-              ),
-              SizedBox(height: 20,),
-                TextFormField(
-                decoration: inputDecor.copyWith(hintText:'LastName',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => lastName = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'UserName',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => userName = value);
-                },
-              ),
-               SizedBox(height: 20,),
-              TextFormField(
-                obscureText: true,
-                decoration: inputDecor.copyWith(hintText:'Password',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => password = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                keyboardType: TextInputType.datetime,
-                decoration: inputDecor.copyWith(hintText:'Date of Birth',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => dateOfBirth = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'Country',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => country = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'State',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => state = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                decoration: inputDecor.copyWith(hintText:'City',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                onChanged: (value){
-                  setState(() => city = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                decoration: inputDecor.copyWith(hintText:'Phone Number',hintStyle: TextStyle(fontSize: 12)),
-                validator: (value){
-                  if(value.isEmpty){
-                    return 'Field cannot be empty';
-                  }
-                  return null;
-                },
-                 onChanged: (value){
-                  setState(() => phoneNo = value);
-                },
-              ),
-              SizedBox(height: 20,),
-              SizedBox(height: 10,),
-              Text(error,style: TextStyle(color: Colors.red),),
-              RaisedButton(
-                child: Text('SignUp'),
-                onPressed: ()async{
-                  if(_formKey.currentState.validate()){
-                    var result = await _auths.signUpUser(email, password);
-                    if(result == null){
-                      setState(() {
-                        error = 'Invalid credentials please correct them';
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomeScreen();}));
-                      });
-                    }
-                    // return HomeScreen();
-                  }
-                  // return SpinKitChasingDots(size: 70, color: Colors.pink,);
-                },
-                color: Colors.pinkAccent,elevation: 0.1,),
-            SizedBox(height: 10,),
-            RichText(
-              text: TextSpan(
-                text: 'Have an account? ',
-                style: TextStyle(color: Colors.black),
-                children:<TextSpan>[
-                  TextSpan(
-                    text: 'Sign in', 
-                    style: TextStyle(color: Colors.pinkAccent),
-                    recognizer: TapGestureRecognizer()
-                    ..onTap = (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){ return SignIn();}));
-                      }
-                    ),
-                  ]
+
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    
+
+    return ViewModelProvider<SignUpViewModel>.withConsumer(
+      viewModel: SignUpViewModel(),
+      builder: (context, model, child) => Scaffold(
+          backgroundColor: Colors.white,
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                InputField(
+                  placeholder: 'Email',
+                  controller: emailController,
                 ),
-              ),
-             ]
-           ),
-         ],
-        ),
-      ),
+                verticalSpaceSmall,
+                InputField(
+                  placeholder: 'Password',
+                  password: true,
+                  controller: passwordController,
+                ),
+                verticalSpaceMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    BusyButton(
+                      title: 'Sign U',
+                      busy: model.busy,
+                      onPressed: () {
+                        model.signUp(emailController.text, passwordController.text);
+                    },
+                  )
+                ],
+              )
+            ]
+          ),
+        )
+      )
     );
   }
 }

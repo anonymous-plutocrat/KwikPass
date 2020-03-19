@@ -4,7 +4,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -18,6 +18,11 @@ dependencies:
   cloud_firestore: ^0.13.4+2
   google_sign_in: 
   flutter_spinkit: ^4.1.2
+  stripe_payment: ^1.0.6
+  flutter_rave: ^0.0.5
+  provider_architecture: ^1.0.6
+  get_it: ^3.0.0+1
+  rflutter_alert: ^1.0.3
 
 
 
