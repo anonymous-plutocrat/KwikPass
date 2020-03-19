@@ -13,7 +13,7 @@ class Auths{
     try{
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
-      return user;
+      return user != null;
     }
     catch(e){
       print(e.toString());
@@ -25,7 +25,7 @@ class Auths{
     try{
       AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
-      return user;
+      return user != null;
     }
     catch(e){
       print(e.toString());
@@ -42,7 +42,7 @@ class Auths{
       );
       AuthResult authRes = await _auth.signInWithCredential(creden);
       FirebaseUser user = authRes.user;
-      return user;
+      return user != null;
     }
     catch(e){
       print(e.toString());

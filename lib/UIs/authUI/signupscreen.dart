@@ -1,234 +1,62 @@
-import 'package:flutter/gestures.dart';
+// // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:road_to_flutter/UIs/authUI/signinscreen.dart';
-// import 'package:road_to_flutter/UIs/homescreen.dart';
-import 'package:road_to_flutter/auth/auths.dart';
+import 'package:provider_architecture/provider_architecture.dart';
+import 'package:road_to_flutter/UIs/sharedUI/buttonUi.dart';
+// import 'package:road_to_flutter/auth/auths.dart';
+// import 'package:road_to_flutter/shared/buttonDecor.dart';
 import 'package:road_to_flutter/shared/inputDecor.dart';
+import 'package:road_to_flutter/shared/uihelpers.dart';
+import 'package:road_to_flutter/view_models/sign_in_view_model.dart';
+import 'package:road_to_flutter/view_models/sign_up_view_model.dart';
 
 
 
-
-
-class SignUp extends StatefulWidget {
-  @override
-  _SignUpState createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
-
-  Auths _auths = Auths();
-  final _formKey = GlobalKey<FormState>();
-  String firstName = '';
-  String lastName = '';
-  String userName = '';
-  String password = '';
-  String dateOfBirth = '';
-  String country= '';
-  String state = '';
-  String city = '';
-  String phoneNo = '';
-  String email = '';
-  String error = '';
-
-  @override
+class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        elevation: 0,
-        centerTitle: true,
-        title: Text('SignUp'),
-      ),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-            children: <Widget> [Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-            SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'FirstName',
-                icon: Icon(Icons.person),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    firstName = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'E-mail',
-                icon: Icon(Icons.email),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    email = input;
-                },
-              ),
-              SizedBox(height: 20,),
-                CustomTextField(
-                hint: 'Lastname',
-                icon: Icon(Icons.person),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    lastName = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'Username',
-                icon: Icon(Icons.person),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    userName = input;
-                },
-              ),
-               SizedBox(height: 20,),
-              CustomTextField(
-                obsecure: true,
-                hint: 'Password',
-                icon: Icon(Icons.lock),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    lastName = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'Date of Birth',
-                icon: Icon(Icons.date_range),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    dateOfBirth = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'Country',
-                icon: Icon(Icons.place),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    lastName = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'State',
-                icon: Icon(Icons.place),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    state = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'City',
-                icon: Icon(Icons.place),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    city = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hint: 'Phone Number',
-                icon: Icon(Icons.contact_phone),
-                validator: (value){
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
-                  onSaved: (input) {
-                    phoneNo = input;
-                },
-              ),
-              SizedBox(height: 20,),
-              SizedBox(height: 10,),
-              Text(error,style: TextStyle(color: Colors.red),),
-              RaisedButton(
-                child: Text('SignUp'),
-                onPressed: ()async{
-                  if(_formKey.currentState.validate()){
-                    var result = await _auths.signUpUser(email, password);
-                    if(result == null){
-                      setState(() {
-                        error = 'Invalid credentials please correct them';
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomeScreen();}));
-                      });
-                    }
-                    // return HomeScreen();
-                  }
-                  // return SpinKitChasingDots(size: 70, color: Colors.pink,);
-                },
-                color: Colors.pinkAccent,elevation: 0.1,),
-            SizedBox(height: 10,),
-            RichText(
-              text: TextSpan(
-                text: 'Have an account? ',
-                style: TextStyle(color: Colors.black),
-                children:<TextSpan>[
-                  TextSpan(
-                    text: 'Sign in', 
-                    style: TextStyle(color: Colors.pinkAccent),
-                    recognizer: TapGestureRecognizer()
-                    ..onTap = (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){ return SignIn();}));
-                      }
-                    ),
-                  ]
+
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    
+
+    return ViewModelProvider<SignUpViewModel>.withConsumer(
+      viewModel: SignUpViewModel(),
+      builder: (context, model, child) => Scaffold(
+          backgroundColor: Colors.white,
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                InputField(
+                  placeholder: 'Email',
+                  controller: emailController,
                 ),
-              ),
-             ]
-           ),
-         ],
-        ),
-      ),
+                verticalSpaceSmall,
+                InputField(
+                  placeholder: 'Password',
+                  password: true,
+                  controller: passwordController,
+                ),
+                verticalSpaceMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    BusyButton(
+                      title: 'Sign U',
+                      busy: model.busy,
+                      onPressed: () {
+                        model.signUp(emailController.text, passwordController.text);
+                    },
+                  )
+                ],
+              )
+            ]
+          ),
+        )
+      )
     );
   }
 }
