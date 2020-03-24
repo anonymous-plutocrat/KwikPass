@@ -11,10 +11,26 @@ class SignUpViewModel extends BaseModel{
   final Auths _auths = locator<Auths>();
   final NavigationService navserve = locator<NavigationService>();
 
+  String _selectedgender = 'Sex';
+  String get selectedGender => _selectedgender;
 
-  Future signUp( email,  password)async{
+  void setSelectedGender(dynamic role){
+    _selectedgender = role;
+    notifyListeners();
+  }
+
+
+  Future signUp( email,password,firstname, lastname,username,countrycode,country)async{
       setBusy(true);
-       var result = await _auths.signUpUser(email, password);
+       var result = await _auths.signUpUser(
+         email: email,
+         password: password,
+         firstname: firstname,
+         lastname: lastname,
+         username: username,
+         sex: _selectedgender,
+         countrycode: countrycode,
+         country: country);
        setBusy(false);
        if(result is bool){
          if(result){

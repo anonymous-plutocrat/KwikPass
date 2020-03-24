@@ -1,15 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Auths{
   
-  // Initializing firebase authentication as '_auth'
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  // Initializing google_sign_in as _gAuth
+  
   final GoogleSignIn _gAuth = GoogleSignIn();
 
-  // Here we are making users with just their email and password
-  Future signUpUser(String email, String password) async{
+  // FirebaseAuth signup
+  Future signUpUser({@required String email,@required String password,@required String firstname,@required String lastname,@required String username,@required String sex,@required String country,@required String countrycode}) async{
     try{
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
@@ -20,7 +21,7 @@ class Auths{
       return null;
     }
   }
-  // Here we are signing in already created users
+  // firebase Auth Signin
   Future signInUser(String email, String password)async {
     try{
       AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
@@ -32,6 +33,7 @@ class Auths{
       return null;
     }
   }
+  // Google signIn
   Future googleSignIn() async{
     try{
       GoogleSignInAccount result = await _gAuth.signIn();
@@ -49,6 +51,8 @@ class Auths{
       return null;
     }
   }
+
+  // For the love of signing out
   Future signOut()async{
     try{
       _auth.signOut();
@@ -66,5 +70,10 @@ class Auths{
       print(e.toString());
       return null;
     }
+  }
+  
+  Future<bool> userAvailbale() async{
+    var user = await _auth.currentUser();
+    return user != null;
   }
 }

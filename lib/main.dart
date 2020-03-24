@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:road_to_flutter/UIs/authUI/signupscreen.dart';
+import 'package:road_to_flutter/UIs/allUI/signupscreen.dart';
+import 'package:road_to_flutter/UIs/allUI/startup_view.dart';
 import 'package:road_to_flutter/UIs/router.dart';
 import 'package:road_to_flutter/locator.dart';
 import 'package:road_to_flutter/manager/dialogmanager.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (settings) => MaterialPageRoute(
             builder: (context) => DialogManager(child: child)),
       ),
-      home: SignUp(),
+      home: StartUpView(),
       onGenerateRoute: generateRoute,
       navigatorKey: locator<NavigationService>().navigationKey,
     );
