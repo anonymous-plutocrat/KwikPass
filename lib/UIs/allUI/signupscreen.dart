@@ -49,7 +49,7 @@ class SignUp extends StatelessWidget {
                   verticalSpaceMedium,
                   InputField(
                     placeholder: 'Email',
-                    controller: passwordController,
+                    controller: emailController,
                   ),
                   verticalSpaceMedium,
                   InputField(
@@ -61,6 +61,7 @@ class SignUp extends StatelessWidget {
                     placeholder: 'Password',
                     controller: passwordController,
                     password: true,
+                    additionalNote: 'Password must be 6 chacraters long',
                     ),
                     verticalSpaceMedium,
                     InputField(
@@ -89,12 +90,11 @@ class SignUp extends StatelessWidget {
                           model.signUp(
                             emailController.text, 
                             passwordController.text, 
-                            firstnameController.text,
-                            lastnameController.text,
-                            countrycodeController.text,
-                            countryController.text,
-                            usernameController.text
-                       );
+                            firstnameController.text, 
+                            lastnameController.text, 
+                            usernameController.text, 
+                            countrycodeController.text, 
+                            countryController.text);
                       },
                     )
                   ],
@@ -102,7 +102,7 @@ class SignUp extends StatelessWidget {
               ]
             ),
         ),
-          )
+        )
       )
     );
   }
