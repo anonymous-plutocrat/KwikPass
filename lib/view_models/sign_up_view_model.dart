@@ -1,5 +1,6 @@
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:road_to_flutter/auth/auths.dart';
 import 'package:road_to_flutter/constants/routes.dart';
 import 'package:road_to_flutter/locator.dart';
@@ -20,12 +21,12 @@ class SignUpViewModel extends BaseModel{
   }
 
 
-  Future signUp( email,password,firstname, lastname,username,countrycode,country)async{
+  Future signUp(email,password,firstname,lastname,username,countrycode,country)async{
       setBusy(true);
        var result = await _auths.signUpUser(
          email: email,
          password: password,
-         firstname: firstname,
+         firstname: firstname, 
          lastname: lastname,
          username: username,
          sex: _selectedgender,

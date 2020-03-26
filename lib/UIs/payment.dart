@@ -63,8 +63,8 @@ class _PaymentState extends State<Payment> {
     );
   }
   _pay(BuildContext context){
-  final snackBar_onFailure = SnackBar(content: Text('Transaction Failed :('), backgroundColor: Colors.red,);
-  final snackBar_onClosed = SnackBar(content: Text('Transaction Closed !'), backgroundColor: Colors.amber,);
+  final snackBaronFailure = SnackBar(content: Text('Transaction Failed :('), backgroundColor: Colors.red,);
+  final snackBaronClosed = SnackBar(content: Text('Transaction Closed !'), backgroundColor: Colors.amber,);
   final _rave = RaveCardPayment(
     isDemo: true,
     encKey:"FLWSECK_TEST1e7c4b1a45a8",
@@ -88,11 +88,11 @@ class _PaymentState extends State<Payment> {
     onFailure: (err){
       print('$err');
       print('Transaction Failed');
-      Scaffold.of(context).showSnackBar(snackBar_onFailure);
+      Scaffold.of(context).showSnackBar(snackBaronFailure);
     },
     onClosed: (){
       print('Transaction Closed!');
-      Scaffold.of(context).showSnackBar(snackBar_onClosed);
+      Scaffold.of(context).showSnackBar(snackBaronClosed);
     },
     context: context,
   );
