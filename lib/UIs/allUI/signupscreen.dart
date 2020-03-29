@@ -17,11 +17,11 @@ class SignUp extends StatelessWidget {
 
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
-    final firstnameController = TextEditingController();
-    final lastnameController = TextEditingController();
+    // final fullnameController = TextEditingController();
+    // final lastnameController = TextEditingController();
     final usernameController = TextEditingController();
-    final countrycodeController = TextEditingController();
-    final countryController = TextEditingController();
+    // final countrycodeController = TextEditingController();
+    // final countryController = TextEditingController();
     // final genderController = TextEditingController();
     
 
@@ -38,23 +38,13 @@ class SignUp extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   InputField(
-                    placeholder: 'Firstame',
-                    controller: firstnameController,
-                  ),
-                  verticalSpaceMedium,
-                  InputField(
-                    placeholder: 'Lastame',
-                    controller: lastnameController,
+                    placeholder: 'Username',
+                    controller: usernameController,
                   ),
                   verticalSpaceMedium,
                   InputField(
                     placeholder: 'Email',
                     controller: emailController,
-                  ),
-                  verticalSpaceMedium,
-                  InputField(
-                    placeholder: 'Username',
-                    controller: usernameController,
                   ),
                   verticalSpaceMedium,
                   InputField(
@@ -64,21 +54,6 @@ class SignUp extends StatelessWidget {
                     additionalNote: 'Password must be 6 chacraters long',
                     ),
                     verticalSpaceMedium,
-                    InputField(
-                    placeholder: 'CountryCode',
-                    controller: countrycodeController,
-                  ),
-                  verticalSpaceMedium,
-                  InputField(
-                    placeholder: 'Country',
-                    controller: countryController,
-                  ),
-                  verticalSpaceMedium,
-                  ExpansionList(
-                    items: ['Male','Female','None'],
-                    title: model.selectedGender,
-                    onItemSelected: model.setSelectedGender),
-                  verticalSpaceMedium,
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -90,11 +65,7 @@ class SignUp extends StatelessWidget {
                           model.signUp(
                             emailController.text, 
                             passwordController.text, 
-                            firstnameController.text, 
-                            lastnameController.text, 
-                            usernameController.text, 
-                            countrycodeController.text, 
-                            countryController.text);
+                            usernameController.text,);
                       },
                     )
                   ],

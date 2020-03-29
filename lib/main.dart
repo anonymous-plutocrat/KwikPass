@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      builder: (context, child) => Navigator(
-        key: locator<DialogService>().dialogNavigationKey,
-        onGenerateRoute: (settings) => MaterialPageRoute(
-            builder: (context) => DialogManager(child: child)),
-      ),
+      // builder: (context, child) => Navigator(
+      //   key: locator<DialogService>().dialogNavigationKey,
+      //   onGenerateRoute: (settings) => MaterialPageRoute(
+      //       builder: (context) => DialogManager(child: child)),
+      // ),
       home: StartUpView(),
       onGenerateRoute: generateRoute,
       navigatorKey: locator<NavigationService>().navigationKey,

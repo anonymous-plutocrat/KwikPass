@@ -1,7 +1,6 @@
 class User{
   final String id;
-  final String firstname;
-  final String lastname;
+  final String fullname;
   final String username;
   final String sex;
   final String password;
@@ -9,11 +8,10 @@ class User{
   final String country;
   final String countrycode;
 
-  User({this.lastname, this.id, this.firstname, this.username, this.sex, this.password, this.email, this.countrycode, this.country});
+  User({this.id, this.fullname, this.username, this.sex, this.password, this.email, this.countrycode, this.country});
   User.fromData(Map<String,dynamic> data)
     :   id = data["id"],
-        firstname = data["firstname"],
-        lastname = data["lastname"],
+        fullname = data["fullname"],
         username = data["username"],
         sex = data["sex"],
         password = data["password"],
@@ -24,8 +22,7 @@ class User{
   Map<String,dynamic> toJson(){
     return {
       'id':id,
-      'firstname':firstname,
-      'lastname':lastname,
+      'fullname':fullname,
       'username': username,
       'email':email,
       'sex': sex,

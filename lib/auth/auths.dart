@@ -25,7 +25,7 @@ class Auths{
   }
 
   // FirebaseAuth signup
-  Future signUpUser({@required String email,@required String password,@required String firstname,@required String lastname,@required String username,@required String sex,@required String country,@required String countrycode}) async{
+  Future signUpUser({@required String email,@required String password,@required String username}) async{
     try{
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
@@ -33,11 +33,6 @@ class Auths{
       await makeUser.createUser(User(
         email: email,
         id: result.user.uid,
-        country: country,
-        firstname: firstname,
-        lastname: lastname,
-        countrycode: countrycode,
-        sex: sex,
         username: username,
       ));
       return user != null;

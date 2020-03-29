@@ -22,4 +22,12 @@ class FirestoreDB{
       return e.message;
     }
   }
+  Future update(User user) async{
+    try{
+      await _userCollectionRef.document(user.id).updateData(user.toJson());
+    }
+    catch(e){
+      return e.message;
+    }
+  }
 }
