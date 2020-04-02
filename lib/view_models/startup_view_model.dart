@@ -16,7 +16,7 @@ class StartUpViewModel extends BaseModel{
     if(userAvailable){
       navigate.navigateTo(HomeViewRoute);
     }else{
-      navigate.navigateTo(SignUpViewRoute);
+      navigate.navigateTo(SignInViewRoute);
     }
   }
 }

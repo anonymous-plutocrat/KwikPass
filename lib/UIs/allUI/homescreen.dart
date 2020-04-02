@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:road_to_flutter/models/user_model.dart';
+// import 'package:road_to_flutter/models/user_model.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -9,8 +9,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  User user = User();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text('Welcome, ${user.username}'),
+        child: Text('Welcome, User'),
       ),
     );
   }

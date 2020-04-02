@@ -9,7 +9,7 @@ class FirestoreDB{
       await _userCollectionRef.document(user.id).setData(user.toJson());
     }
     catch(e){
-      return e.message;
+      return e.toString();
     }
   }
 
@@ -19,7 +19,15 @@ class FirestoreDB{
       return User.fromData(userData.data);
     }
     catch(e){
-      return e.message;
+      return e.toString();
+    }
+  }
+  Future update(User user) async{
+    try{
+      await _userCollectionRef.document(user.id).updateData(user.toJson());
+    }
+    catch(e){
+      return e.toString();
     }
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:road_to_flutter/UIs/allUI/homescreen.dart';
 import 'package:road_to_flutter/UIs/allUI/signinscreen.dart';
 import 'package:road_to_flutter/UIs/allUI/signupscreen.dart';
-// import 'package:road_to_flutter/UIs/authUI/signupscreen.dart';
-import 'package:road_to_flutter/UIs/homescreen.dart';
+import 'package:road_to_flutter/UIs/allUI/startup_view.dart';
 import 'package:road_to_flutter/constants/routes.dart';
 
 
@@ -22,6 +22,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: HomeScreen(),
+      );
+    case StartUpViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: StartUpView(),
       );
     default:
       return MaterialPageRoute(

@@ -12,26 +12,12 @@ class SignUpViewModel extends BaseModel{
   final Auths _auths = locator<Auths>();
   final NavigationService navserve = locator<NavigationService>();
 
-  String _selectedgender = 'Sex';
-  String get selectedGender => _selectedgender;
-
-  void setSelectedGender(dynamic role){
-    _selectedgender = role;
-    notifyListeners();
-  }
-
-
-  Future signUp(email,password,firstname,lastname,username,countrycode,country)async{
+  Future signUp(email,password,username)async{
       setBusy(true);
        var result = await _auths.signUpUser(
          email: email,
          password: password,
-         firstname: firstname, 
-         lastname: lastname,
-         username: username,
-         sex: _selectedgender,
-         countrycode: countrycode,
-         country: country);
+         username: username,);
        setBusy(false);
        if(result is bool){
          if(result){
@@ -46,5 +32,8 @@ class SignUpViewModel extends BaseModel{
           return 'BOOOO HOOOO BITCH';
          }
        }
+       else{
+          return 'I failed you man';
+    }
   }
 }

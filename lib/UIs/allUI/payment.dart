@@ -66,12 +66,12 @@ class _PaymentState extends State<Payment> {
   final snackBaronFailure = SnackBar(content: Text('Transaction Failed :('), backgroundColor: Colors.red,);
   final snackBaronClosed = SnackBar(content: Text('Transaction Closed !'), backgroundColor: Colors.amber,);
   final _rave = RaveCardPayment(
-    isDemo: true,
-    encKey:"FLWSECK_TEST1e7c4b1a45a8",
-    publicKey: "FLWPUBK_TEST-c766039caa205c08f89f7fc98122344e-X",
+    isDemo: false,
+    encKey:"75bbce79a9ac2fd0c035865e",
+    publicKey: "FLWPUBK-1bb46cacbb720bb232c0d36ff0af566b-X",
     transactionRef: "hvHPvKYaRuJLlJWSPWGGKUyaAfWeZKnm",
-    amount: 300000,
-    email: 'jdoe@gmail.com',
+    amount: 10,
+    email: 'chiagozieani145@gmail.com',
     onSuccess: (response){
       print('$response');
       print('Transaction Successful');
