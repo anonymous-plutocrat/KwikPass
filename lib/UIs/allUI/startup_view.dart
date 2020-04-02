@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:road_to_flutter/shared/uihelpers.dart';
 import 'package:road_to_flutter/view_models/startup_view_model.dart';
@@ -10,21 +11,18 @@ class StartUpView extends StatelessWidget {
       viewModel: StartUpViewModel(),
       onModelReady: (model) => model.handleStartUpLogic(),
       builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         body: Center(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            // mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                width: 300,
-                height: 100,
-                child: Image.network('https://i.picsum.photos/id/558/200/300.jpg')
+              Center(
+                child: Text('K w i k P a s s',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 30)),
               ),
               verticalSpaceTiny,
-              CircularProgressIndicator(
-                strokeWidth: 3,
-                valueColor: AlwaysStoppedAnimation(Color(0xff19c7c1)),
-              )
+              // SpinKitHourGlass(size: 50, color: Colors.white,)
             ],
           ),
         ),

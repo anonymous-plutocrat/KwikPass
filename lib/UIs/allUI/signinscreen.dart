@@ -1,9 +1,6 @@
-// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:road_to_flutter/UIs/sharedUI/buttonUi.dart';
-// import 'package:road_to_flutter/auth/auths.dart';
-// import 'package:road_to_flutter/shared/buttonDecor.dart';
 import 'package:road_to_flutter/shared/inputDecor.dart';
 import 'package:road_to_flutter/shared/uihelpers.dart';
 import 'package:road_to_flutter/view_models/sign_in_view_model.dart';
