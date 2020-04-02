@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:road_to_flutter/UIs/allUI/homescreen.dart';
 import 'package:road_to_flutter/UIs/allUI/startup_view.dart';
 import 'package:road_to_flutter/UIs/router.dart';
 import 'package:road_to_flutter/locator.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       //   onGenerateRoute: (settings) => MaterialPageRoute(
       //       builder: (context) => DialogManager(child: child)),
       // ),
-      home: StartUpView(),
+      home: HomeScreen(),
       onGenerateRoute: generateRoute,
       navigatorKey: locator<NavigationService>().navigationKey,
     );
